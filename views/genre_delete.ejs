@@ -1,0 +1,19 @@
+<%= genre.name%> <%if(genre_books.length) {%> <% genre_books.forEach(book=>{%>
+<h1>delete following books before deleting genre</h1>
+
+<a href="<%=book.url%>"><%=book.title%></a>
+<br />
+<%})%> <%}else{%>
+<h1>do you really want to delete <%=genre.name%></h1>
+<form method="POST" action="">
+  <input
+    id="genreid"
+    type="hidden"
+    name="genreid"
+    class="form-control"
+    required="true"
+    value="<%= genre._id %>"
+  />
+  <button type="submit">delete</button>
+</form>
+<%}%>

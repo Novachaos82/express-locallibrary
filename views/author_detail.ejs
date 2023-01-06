@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('layout') %>
+    <h1>Author: <%= author.name %></h1>
+    <p><%= author.lifespan%></p>
+
+    <div style="margin-left: 20px; margin-top: 20px">
+      <h4>Books</h4>
+
+      <dl>
+        <% author_books.forEach(function(book) { %>
+        <dt>
+          <a href="<%= book.url %>"><%= book.title %></a>
+        </dt>
+        <dd><%= book.summary %></dd>
+        <% }); %> <% if (author_books.length === 0) { %>
+        <p>This author has no books.</p>
+        <% } %>
+      </dl>
+    </div>
+    <hr />
+    <p>
+      <a href="<%= author.url + '/delete' %>"> Delete author </a>
+    </p>
+  </body>
+</html>
