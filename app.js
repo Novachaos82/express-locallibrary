@@ -12,9 +12,9 @@ var catalogRouter = require("./routes/catalog");
 var app = express();
 
 //models
-
-const mongoDB =
+const dev_db_url =
   "mongodb+srv://Bhavesh:test1234@mongoosetuts.rdqtthh.mongodb.net/local_library?retryWrites=true&w=majority";
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 //.then((result) => app.listen(5000))
 //.catch((err) => console.log(err));
